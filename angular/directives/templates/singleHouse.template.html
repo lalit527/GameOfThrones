@@ -1,0 +1,63 @@
+<!-- <div class="container-fluid">
+<div class="row">
+    {{detailCtrl.allDetails.name}}
+    {{detailCtrl.allDetails.region}}
+    {{detailCtrl.allDetails.coastOfArms}}
+    {{detailCtrl.allDetails.words}}
+    {{detailCtrl.allDetails.fouded}}
+
+    <ul>
+          <li ng-repeat="seats in detailCtrl.allDetails.seats">
+              {{seats}}<br/>
+              <hr/>
+          </li>
+    </ul>
+    <ul>
+          <li ng-repeat="titles in detailCtrl.allDetails.titles">
+              {{titles}}<br/>
+              <hr/>
+          </li>
+    </ul>
+</div>
+</div> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1" style="padding-top: 5%;">
+            <div class="col-md-4 houses-img">
+                <img class='img-responsive' src="./img/houses.jpg">
+            </div>
+            <div class="col-md-4 col-md-offset-1">
+                <h3 class='books-name'>{{detailCtrl.allDetails.name}}</h3>
+                <div class='authors-panel'><span class="authors-name">Region:</span> <span class='data-details'> {{detailCtrl.allDetails.region ? detailCtrl.allDetails.region : 'NA'}}</span>
+                </div>
+                <div class='details'><span class="details-view">Founded By:</span> <span class='data-details'>{{detailCtrl.allDetails.fouded ? detailCtrl.allDetails.fouded : 'NA'}}</span>
+                </div>
+                <div class='details'><span class="details-view">Coast Of Arms:</span> <span class='data-details'> {{detailCtrl.allDetails.coastOfArms ? detailCtrl.allDetails.coastOfArms : 'NA'}}</span>
+                </div>
+                <div class='details'><span class="details-view">Words:</span> <span class='data-details'>    {{detailCtrl.allDetails.words ? detailCtrl.allDetails.words : 'NA'}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-6" style="padding-top: 2%;">
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Show More Details</button>
+            <div id="demo" class="collapse">
+                <div class='details-view'>Seats</div>
+                <ul>
+                    <li ng-repeat="seats in detailCtrl.allDetails.seats" class="data-details">
+                        {{seats ? seats: 'NA' }}
+                        <br/>
+                        <hr/>
+                    </li>
+                </ul>
+                <span class='details-view'>Titles</span>
+                <ul>
+                    <li ng-repeat="titles in detailCtrl.allDetails.titles" class="data-details">
+                        {{titles ?titles :'NA' }}
+                        <br/>
+                        <hr/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

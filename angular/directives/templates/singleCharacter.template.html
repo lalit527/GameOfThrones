@@ -1,0 +1,67 @@
+<!-- <div class="container-fluid">
+<div class="row">
+    {{detailCtrl.allDetails.name}}
+    {{detailCtrl.allDetails.gender}}
+    {{detailCtrl.allDetails.culture}}
+    {{detailCtrl.allDetails.born}}
+    {{detailCtrl.allDetails.died}}
+    {{detailCtrl.allDetails.playedBy[0]}}
+    <ul>
+          <li ng-repeat="aliases in detailCtrl.allDetails.aliases">
+              {{aliases}}<br/>
+              <hr/>
+          </li>
+    </ul>
+    <ul>
+          <li ng-repeat="titles in detailCtrl.allDetails.titles">
+              {{titles}}<br/>
+              <hr/>
+          </li>
+    </ul>
+</div>
+</div> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1" style="padding-top: 5%;">
+            <div class="col-md-4">
+                <img class='img-responsive books-img' src="./img/characters.jpg">
+            </div>
+            <div class="col-md-4 col-md-offset-1">
+                <h3 class='books-name'>{{detailCtrl.allDetails.name ? detailCtrl.allDetails.name : 'NA'}}</h3>
+                <div class='authors-panel'><span class="authors-name">Gender:</span> <span class='data-details'>{{detailCtrl.allDetails.gender ? detailCtrl.allDetails.gender : 'NA' }}</span>
+                </div>
+                <div class='details'><span class="details-view">Born:</span><span class='data-details'>{{detailCtrl.allDetails.born ? detailCtrl.allDetails.born : 'NA'}}</span>
+                </div>
+                <div class='details'><span class="details-view">Culture:</span><span class='data-details'>{{detailCtrl.allDetails.culture ? detailCtrl.allDetails.culture : 'NA'}}</span>
+                </div>
+                <div class='details'><span class="details-view">Played By:</span> <span class='data-details'>{{detailCtrl.allDetails.playedBy[0] ? detailCtrl.allDetails.playedBy[0] : 'NA'}}</span>
+                </div>
+                <!-- <div class='details'><span class="details-view">ALive/Dead:</span> <span class='data-details'> 
+                {{detailCtrl.allDetails.died ? (!angular.isDefined(detailCtrl.allDetails.died) && angular.isDefined(detailCtrl.allDetails.born)): 'Alive' : 'Dead'}}
+                </span>
+                </div> -->
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-6">
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Show More Details</button>
+            <div id="demo" class="collapse">
+                <div class='details-view'>Aliases</div>
+                <ul>
+                    <li ng-repeat="aliases in detailCtrl.allDetails.aliases" class="data-details">
+                        {{aliases ? aliases: 'NA' }}
+                        <br/>
+                        <hr/>
+                    </li>
+                </ul>
+                <span class='details-view'>Titles</span>
+                <ul>
+                    <li ng-repeat="titles in detailCtrl.allDetails.titles" class="data-details">
+                        {{titles ?titles :'NA' }}
+                        <br/>
+                        <hr/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

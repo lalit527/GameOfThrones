@@ -1,0 +1,103 @@
+li {
+    list-style: none;
+}
+
+.books-img {
+    padding: 10px;
+    border-radius: 20px;
+    height: 10%;
+}
+
+.books-name {
+    font-family: 'Lemonada', cursive;
+}
+
+.authors-panel {
+    border-bottom: 2px solid gray;
+    padding: 5px;
+}
+
+.authors-name {
+    padding-right: 5px;
+    font-size: 30px;
+    font-family: 'Fresca', sans-serif;
+}
+
+.details {
+    border-bottom: 2px solid gray;
+    padding: 5px;
+}
+
+.details-view {
+    padding-right: 5px;
+    font-size: 30px;
+    font-family: 'Fresca', sans-serif;
+}
+
+.data-details {
+    font-size: 20px;
+}
+
+.houses-img img {
+    height: 300px;
+    width: 400px;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    /* Firefox */
+    -webkit-animation: fadein 2s;
+    /* Safari and Chrome */
+    -o-animation: fadein 2s;
+    /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+    /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+    /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.main-con{
+    color: wheat;
+}
+.cat-select {
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+    border: 2px solid darkgray;
+}
+.cat-select:focus {
+    outline:0;
+}

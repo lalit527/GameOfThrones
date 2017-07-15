@@ -1,0 +1,11 @@
+<table id="characters-ul" ng-table="mainCtrl.tableParams" class="table table-hover table-condensed" show-filter="true">
+    <tr ng-click="mainCtrl.goToDetail(data.url)" ng-repeat="data in $data">
+        <td title="'Name'" filter="{name: 'text'}" sortable="'name'">
+            <i class="fa fa-female" aria-hidden="true" style="font-size:24px;color:red" ng-if="data.gender == 'Female'"></i>
+            <i class="fa fa-male" aria-hidden="true" style="font-size:24px;color:blue" ng-if="data.gender == 'Male'"></i>{{data.name}}</td>
+        <td title="'Title'" filter="{title: 'text'}" sortable="'title'">{{data.title[0]}}</td>
+        <td title="'aliases'" filter="{aliases: 'text'}" sortable="'aliases'">{{data.aliases[0]}}</td>
+        <td title="'born'" filter="{born: 'text'}" sortable="'born'">{{data.born}}</td>
+        <td title="'died'" filter="{died: 'text'}" sortable="'died'">{{data.died}}</td>
+    </tr>
+</table>

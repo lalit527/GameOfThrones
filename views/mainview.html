@@ -1,0 +1,63 @@
+<div class="main-con">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-2">
+                <select class="col-xs-12 cat-select" ng-model="mainCtrl.resultData" ng-options="y for y in mainCtrl.filterData" ng-change="leagueCtrl.changeCount()">
+                </select>
+            </div>
+        </div>
+    </div>
+    <section id="books" class="container content-section text-center" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'BOOKS'">
+        <div class="row books">
+            <div class="col-lg-8 col-lg-offset-2 ">
+                <!-- <ul id="books-ul">
+                        
+                    </ul> -->
+                <div class="table-responsive" id="books-ul">
+                    <h2>BOOKS</h2>
+                    <all-books></all-books>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="characters" class="content-section" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'CHARACTERS'">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <!-- <ul id="characters-ul">
+                    
+                </ul> -->
+                <div class="table-responsive" id="characters-ul">
+                    <h2>CHARACTERS</h2>
+                    <all-characters></all-characters>
+                </div>
+                <!--  <button ng-click="mainCtrl.getAllCharacters(mainCtrl.charcUrl, mainCtrl.characters, mainCtrl.dataPerRequest)">Get More Characters</button> -->
+            </div>
+        </div>
+    </section>
+    <section id="houses" class="container content-section text-center" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'HOUSES'">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="table-responsive" id="house-ul">
+                    <h2>HOUSES</h2>
+                    <all-houses></all-houses>
+                </div>
+            </div>
+    </section>
+    <!-- <all-books></all-books>
+<all-characters></all-characters> 
+<all-houses></all-houses>-->
+    <!-- <div ng-repeat="data in mainCtrl.allData|orderBy:sortData">  -->
+    <!-- <all-books ng-if="data.type == 'books'"></all-books> -->
+    <!-- <all-characters ng-if="data.type == 'characters'"></all-characters>   -->
+    <!--  <button ng-click="mainCtrl.getAllBooks(mainCtrl.bookUrl, mainCtrl.books, mainCtrl.dataPerRequest)">Get More Books</button> -->
+    <!-- <ul>
+        <li ng-repeat="allData in mainCtrl.allData">
+            {{allData.name}}<br/>
+            {{allData.url}}<br/>
+            {{allData.type}}
+        </li>
+    </ul>
+    <button ng-click="mainCtrl.getAllData(mainCtrl.bookUrl, mainCtrl.books, mainCtrl.charcUrl, mainCtrl.characters, mainCtrl.houseUrl, mainCtrl.houses, mainCtrl.dataPerRequest)">Get More Data</button>
+    -->
+    <!-- </div> -->
+    </div>

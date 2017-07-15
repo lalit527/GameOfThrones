@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1" style="padding-top: 5%;">
+            <div class="col-md-4">
+                <img class='img-responsive books-img' src="./img/books.jpg">
+            </div>
+            <div class="col-md-4 col-md-offset-1">
+                <h3 class='books-name'>{{detailCtrl.allDetails.name}}</h3>
+                <div class='authors-panel' ng-repeat="authors in detailCtrl.allDetails.authors"><span class="authors-name">Author:</span> <span class='data-details'>{{authors}}</span>
+                </div>
+                <div class='details'><span class="details-view">Publisher:</span> <span class='data-details'>{{detailCtrl.allDetails.publisher}}</span>
+                </div>
+                <div class='details'><span class="details-view">Released On:</span> <span class='data-details'>{{detailCtrl.allDetails.released}}</span>
+                </div>
+                <div class='details'><span class="details-view">Number of Pages:</span> <span class='data-details'>{{detailCtrl.allDetails.numberOfPages}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
