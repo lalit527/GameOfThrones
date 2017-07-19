@@ -7,7 +7,7 @@
             </div>
         </div>
     </div>
-    <section id="books" class="container content-section text-center" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'BOOKS'">
+    <section id="books" class="container content-section text-center all-book-data" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'BOOKS'">
         <div class="row books">
             <div class="col-lg-8 col-lg-offset-2 ">
                 <!-- <ul id="books-ul">
@@ -20,7 +20,18 @@
             </div>
         </div>
     </section>
-    <section id="characters" class="content-section" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'CHARACTERS'">
+    
+    <section id="houses" class="container content-section all-house-data text-center" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'HOUSES'">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="table-responsive" id="house-ul">
+                    <h2>HOUSES</h2>
+                    <all-houses></all-houses>
+                </div>
+            </div>
+    </section>
+
+    <section id="characters" class="content-section all-character-data" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'CHARACTERS'">
         <div class="container">
             <div class="col-lg-8 col-lg-offset-2">
                 <!-- <ul id="characters-ul">
@@ -33,15 +44,6 @@
                 <!--  <button ng-click="mainCtrl.getAllCharacters(mainCtrl.charcUrl, mainCtrl.characters, mainCtrl.dataPerRequest)">Get More Characters</button> -->
             </div>
         </div>
-    </section>
-    <section id="houses" class="container content-section text-center" ng-hide="mainCtrl.resultData != 'ALL' && mainCtrl.resultData != 'HOUSES'">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <div class="table-responsive" id="house-ul">
-                    <h2>HOUSES</h2>
-                    <all-houses></all-houses>
-                </div>
-            </div>
     </section>
     <!-- <all-books></all-books>
 <all-characters></all-characters> 

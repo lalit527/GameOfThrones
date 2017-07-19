@@ -1,6 +1,6 @@
-<table id="characters-ul" ng-table="mainCtrl.tableBooks" class="table table-hover table-condensed" show-filter="true">
+<table id="characters-ul" style='' ng-table="mainCtrl.tableBooks" class="table table-hover table-condensed books-table" show-filter="true">
     <tr ng-click="mainCtrl.goToDetail(data.url)" ng-repeat="data in $data">
-        <td title="'Name'" filter="{name: 'text'}" sortable="'name'"><i class="fa fa-book" aria-hidden="true" style="font-size:24px;color:red"></i>{{data.bookName}}</td>
+        <td title="'Name'" filter="{name: 'text'}" sortable="'name'"><i class="fa fa-book" aria-hidden="true" style="color:red; float: left;margin-left: 0;"></i>{{data.bookName}}</td>
         <td title="'Author'" filter="{author: 'text'}" sortable="'author'">{{data.authors[0]}}</td>
         <td title="'ReleaseDate'" filter="{released: 'text'}" sortable="'released'">{{data.released | date:medium}}</td>
     </tr>

@@ -1,5 +1,5 @@
 'use strict'
-gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'getAllDataService', 'getDetailFactory', '$location', "NgTableParams", "$interval", "$timeout", '$routeParams', function($scope, $http, getAllUrlService, getAllDataService, getDetailFactory, $location, NgTableParams, $interval, $timeout, $routeParams){
+gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'getAllDataService', 'getDetailFactory', '$location', "NgTableParams", "$interval", "$timeout", '$routeParams', 'getSaveData','getSaveDataChar', 'getSaveDataBooks', function($scope, $http, getAllUrlService, getAllDataService, getDetailFactory, $location, NgTableParams, $interval, $timeout, $routeParams, getSaveData, getSaveDataChar, getSaveDataBooks){
     var main = this;
     main.allUrl = {};
     main.books = 1;
@@ -21,7 +21,7 @@ gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'g
         var type = url.substring(url.lastIndexOf('/', lastIndex-1)+1, lastIndex);
         $location.path('/details/'+type+'/'+id);
     }
-    console.log($routeParams.books);
+    //console.log($routeParams.books);
     main.filterData = ['ALL', 'BOOKS', 'CHARACTERS', 'HOUSES'];
     main.resultData = 'ALL';
     main.bookName = 'bookName';
@@ -46,10 +46,8 @@ gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'g
 
     
     
-    main.getAllBooks = function(bookUrl, books, pageData){
+    /*main.getAllBooks = function(bookUrl, books, pageData){
          getAllDataService.getAllBookData(bookUrl, books, pageData).then(function successCallback(response){
-                /*console.log(JSON.stringify(response.data[0].name));
-                console.log(JSON.stringify(response.data[0].url));*/
                 for(var indx in response.data){
                    var tmpOject = {
                             "name": response.data[indx].name,
@@ -66,7 +64,7 @@ gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'g
                 }
                 ++main.books;
 	     });
-	};
+	};*/
 	main.getAllCharacters = function(charsUrl,characters,pageData){
        getAllDataService.getAllCharacters(charsUrl, characters, pageData).then(function successCallback(response){
                 /*console.log(JSON.stringify(response.data));*/
@@ -113,67 +111,16 @@ gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'g
 	     });
 
 	}
-    main.getAllData = function(bookUrl, books, charsUrl, characters, houseUrl, houses, pageData){
-         if(books <= 1){
-            getAllDataService.getAllBookData(bookUrl, books, pageData).then(function successCallback(response){
-                /*console.log(JSON.stringify(response.data[0].name));
-                console.log(JSON.stringify(response.data[0].url));*/
-                for(var indx in response.data){
-                   var tmpOject = {
-                            "name": response.data[indx].name,
-                            "url" : response.data[indx].url,
-                            "type": "books"
-                   };
-                   main.booksArr.push(tmpOject);
-                   main.allData.push(tmpOject);
-                }
-                ++main.books;
-            });
-         }
-         if(characters <= 43){
-            getAllDataService.getAllCharacters(charsUrl, characters, pageData).then(function successCallback(response){
-                /*console.log(JSON.stringify(response.data));*/
-                //console.log(JSON.stringify(response.data));
-                for(var indx in response.data){
-                   var tmpOject = {
-                            "name": response.data[indx].name,
-                            "url" : response.data[indx].url,
-                            "type": "characters"
-                   };
-                   main.charsArr.push(tmpOject);
-                   main.allData.push(tmpOject);
-                }
-                ++main.characters;
-            });
-         }
-         if(houses <= 9){
-            getAllDataService.getAllHouses(houseUrl, houses, pageData).then(function successCallback(response){
-                /*console.log(JSON.stringify(response.data));*/
-                //console.log(JSON.stringify(response.data));
-                for(var indx in response.data){
-                   var tmpOject = {
-                            "name": response.data[indx].name,
-                            "url" : response.data[indx].url,
-                            "type": "houses"
-                   };
-                   main.houseArr.push(tmpOject);
-                   main.allData.push(tmpOject);
-
-                }
-                ++main.houses;
-            });
-         }
-    }
-    main.counter = 0;
+    
 	main.urlObject = getAllUrlService.getAllUrlData().then(function successCallback(response){
                 //console.log(response.headers()); 
                 main.allUrl = response.data;
                 main.bookUrl = response.data.books;
                 main.charcUrl = response.data.characters;
                 main.houseUrl = response.data.houses;
-                main.getAllBooks(response.data.books, main.books, main.dataPerRequest);
+                //main.getAllBooks(response.data.books, main.books, main.dataPerRequest);
 
-                var getAllBook = function(){
+                /*var getAllBook = function(){
                     main.getAllBooks(response.data.books, main.books, main.dataPerRequest);
                     main.tableBooks = new NgTableParams({
                       // initial sort order
@@ -186,9 +133,9 @@ gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'g
 
                 }
                 $timeout(getAllBook
-                        ,2000);
+                        ,2000);*/
                 
-                var getAllChar = function(){
+                /*var getAllChar = function(){
                     main.getAllCharacters(response.data.characters, main.characters, main.dataPerRequest);
                     main.tableParams = new NgTableParams({
                       // initial sort order
@@ -201,9 +148,57 @@ gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'g
 
                 }
                 $interval(getAllChar
-                        ,2500,43);
+                        ,2500,2);*/
+                 var z = getSaveDataBooks.getAllBooks(response.data.books, 7).then(
+                     function(res){
+                        main.booksArr = res;               
+                        main.tableBooks = new NgTableParams({
+                          // initial sort order
+                          page: 1,
+                        count: 50
+                        }, {
+                           dataset: main.booksArr
+                        });
+                      });
+                 // main.booksArr =    getSaveDataBooks.getAllBooks(response.data.books, main.dataPerRequest);
+                 // main.tableBooks = new NgTableParams({
+                 //          // initial sort order
+                 //          page: 1,
+                 //        count: 50
+                 //        }, {
+                 //           dataset: main.booksArr
+                 //        });
+                var y = getSaveDataChar.getAllCharacters(response.data.characters, main.dataPerRequest).then(
+                     function(res){
+                        main.charsArr = res;               
+                        main.tableParams = new NgTableParams({
+                          // initial sort order
+                          page: 1,
+                        count: 50
+                        }, {
+                           dataset: main.charsArr
+                        });
+                     }
+                     
+                    );
 
-                var getAllHou = function(){
+                var x = getSaveData.getAllHouses(response.data.houses, main.dataPerRequest).then(
+                     function(res){
+                        main.houseArr = res;         
+                        main.tableHouse = new NgTableParams({
+                              // initial sort order
+                              page: 1,
+                            count: 25
+                            }, {
+                               //console.log(main.houseArr);
+                               dataset: main.houseArr
+                            });
+                     }
+                     
+                    );
+                
+
+                /*var getAllHou = function(){
                     main.getAllHouses(response.data.houses, main.houses, main.dataPerRequest);
                     //console.log(main.houseArr);
                     main.tableHouse = new NgTableParams({
@@ -218,7 +213,7 @@ gotApp.controller('gotMainController', ['$scope','$http', 'getAllUrlService', 'g
 
                 }
                 $interval(getAllHou
-                        ,2500,9);
+                        ,2500,9);*/
                 //$scope.$apply();
                 
 

@@ -1,4 +1,4 @@
-<table id="house-ul" ng-table="mainCtrl.tableHouse" class="table table-hover table-condensed" show-filter="true">
+<table id="house-ul" ng-table="mainCtrl.tableHouse" class="table table-hover table-condensed houses-table" show-filter="true">
     <tr ng-click="mainCtrl.goToDetail(data.url)" ng-repeat="data in $data">
         <td title="'Name'" filter="{name: 'text'}" sortable="'name'"><i class="fa fa-home" aria-hidden="true" style="font-size:30px;color:red"></i>{{data.name}}</td>
         <td title="'Region'" filter="{region: 'text'}" sortable="'region'">{{data.region}}</td>

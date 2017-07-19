@@ -1,3 +1,39 @@
+.table-responsive {
+    border:none;
+}
+.all-book-data{
+     background-image: url("../img/characters-bg.jpg");
+    height: 1000px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.all-character-nndata{
+     background-image: url("../img/characters-bg.jpg");
+    height: 1000px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.all-house-dnnata{
+     background-image: url("http://thesmashable.com/wp-content/uploads/2013/05/game_of_thrones_wallpapers_desktop_backgrounds_game_of_thrones_hd_wallpapers_new_game_of_thrones_theme_wallpapers.jpg");
+    height: 750px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
 li {
     list-style: none;
 }
@@ -41,6 +77,14 @@ li {
 .houses-img img {
     height: 300px;
     width: 400px;
+}
+
+.houses-img img,
+.books-img,
+.books-table,
+.houses-table,
+.characters-table {
+
     animation: fadein 2s;
     -moz-animation: fadein 2s;
     /* Firefox */
@@ -88,9 +132,11 @@ li {
         opacity: 1;
     }
 }
-.main-con{
+
+.main-con {
     color: wheat;
 }
+
 .cat-select {
     margin-top: 50px;
     padding: 10px;
@@ -98,6 +144,35 @@ li {
     color: black;
     border: 2px solid darkgray;
 }
+
 .cat-select:focus {
-    outline:0;
+    outline: 0;
+}
+
+.books-table,
+.characters-table {
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    border-radius: 10px;
+    color: black;
+    text-align: justify;
+    font-family: Shadows Into Light;
+    font-size: 20px;
+}
+
+.characters-table {
+    text-align: left;
+   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8ffe8+0,e3f5ab+33,b7df2d+100;Green+3D+%234 */
+background: #f8ffe8; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover, #f8ffe8 0%, #e3f5ab 33%, #b7df2d 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover, #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center, #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8ffe8', endColorstr='#b7df2d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.houses-table {
+    border-radius: 10px;
+    text-align: justify;
+}
+.houses-table tr:hover {
+    color:black;
 }
