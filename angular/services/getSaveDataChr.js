@@ -8,6 +8,7 @@ gotApp.factory('getSaveDataChar', ['$q','$http', 'getAllDataService', '$interval
 
 
     var getAllCharactersHelper = function(){
+	    ++main.characters;
         getAllDataService.getAllHouses(main.characterUrl, main.characters , main.pageDataChar).then(function successCallback(response){
                 /*console.log(JSON.stringify(response.data));*/
                 //console.log(JSON.stringify(response.data));
@@ -28,7 +29,7 @@ gotApp.factory('getSaveDataChar', ['$q','$http', 'getAllDataService', '$interval
                    main.allData.push(tmpOject);
 
                 }
-                ++main.characters;
+                
 	     });
 
     }
