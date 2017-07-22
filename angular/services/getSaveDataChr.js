@@ -1,14 +1,11 @@
 gotApp.factory('getSaveDataChar', ['$q','$http', 'getAllDataService', '$interval', function($q, $http, getAllDataService, $interval) {
      var main = this;
-     main.characters = 1;
+     main.characters = 0;
      main.charsArr = [];
-     var deferred = $q.defer();
-     main.allData = [];
-    
-
-
+     var deferred = $q.defer()
+     var timerCharacter;
     var getAllCharactersHelper = function(){
-	    ++main.characters;
+        ++main.characters;
         getAllDataService.getAllHouses(main.characterUrl, main.characters , main.pageDataChar).then(function successCallback(response){
                 /*console.log(JSON.stringify(response.data));*/
                 //console.log(JSON.stringify(response.data));
@@ -26,7 +23,6 @@ gotApp.factory('getSaveDataChar', ['$q','$http', 'getAllDataService', '$interval
                             "type": "characters"
                    };
                    main.charsArr.push(tmpOject);
-                   main.allData.push(tmpOject);
 
                 }
                 
@@ -38,8 +34,10 @@ gotApp.factory('getSaveDataChar', ['$q','$http', 'getAllDataService', '$interval
     var getAllCharacters = function(characterUrl, pageData){
     	main.characterUrl = characterUrl;
     	main.pageDataChar = pageData;
-    	$interval(getAllCharactersHelper,250,44).then(function(){
+        clearInterval(timerCharacter);
+    	timerCharacter = $interval(getAllCharactersHelper,500,44).then(function(){
     		//console.log(main.charsArr);
+            //console.log(main.characters);
     		 deferred.resolve(main.charsArr);
     		
     	});
