@@ -10,10 +10,12 @@ gotApp.factory('getSaveData', ['$q','$http', 'getAllDataService', '$interval', f
      //console.log('IN New1');
      var getAllHousesHelper = function(){
      	//console.log('IN New4');
+	     ++main.houses;
         getAllDataService.getAllHouses(main.houseurl, main.houses, main.pageData).then(function successCallback(response){
                 /*console.log(JSON.stringify(response.data));*/
                 //console.log(JSON.stringify(response.data));
                 //console.log('IN New5');
+		
                 for(var indx in response.data){
                    var tmpOject = {
                             "name": response.data[indx].name,
@@ -29,7 +31,7 @@ gotApp.factory('getSaveData', ['$q','$http', 'getAllDataService', '$interval', f
                    main.houseArr.push(tmpOject);
                    main.allData.push(tmpOject);
                 }
-                ++main.houses;
+                
 	     });
 
     }
