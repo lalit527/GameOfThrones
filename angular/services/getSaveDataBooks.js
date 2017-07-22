@@ -8,9 +8,10 @@ gotApp.factory('getSaveDataBooks', ['$q','$http', 'getAllDataService', '$interva
 
 
     var getAllBooksHelper = function(bookUrl, pageData){
+	    ++main.books;
         getAllDataService.getAllBookData(main.bookUrl, main.books , main.pageData).then(function successCallback(response){
-                console.log(main.bookUrl+ main.books + main.pageData);
-                console.log(response);
+                //console.log(main.bookUrl+ main.books + main.pageData);
+                //console.log(response);
                 for(var indx in response.data){
                    var tmpOject = {
                             "name": response.data[indx].name,
@@ -26,7 +27,7 @@ gotApp.factory('getSaveDataBooks', ['$q','$http', 'getAllDataService', '$interva
                    main.allData.push(tmpOject);
 
                 }
-                ++main.books;
+                
 	     });
 
     }
