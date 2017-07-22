@@ -1,14 +1,12 @@
 gotApp.factory('getSaveDataBooks', ['$q','$http', 'getAllDataService', '$interval', function($q, $http, getAllDataService, $interval) {
      var main = this;
-     main.books = 1;
+     main.books = 0;
      main.booksArr = [];
      var deferred = $q.defer();
-     main.allData = [];
-    
-
+     var timerBooks;
 
     var getAllBooksHelper = function(bookUrl, pageData){
-	    ++main.books;
+        ++main.books;
         getAllDataService.getAllBookData(main.bookUrl, main.books , main.pageData).then(function successCallback(response){
                 //console.log(main.bookUrl+ main.books + main.pageData);
                 //console.log(response);
@@ -24,8 +22,6 @@ gotApp.factory('getSaveDataBooks', ['$q','$http', 'getAllDataService', '$interva
                             "result_id": main.books
                    };
                    main.booksArr.push(tmpOject);
-                   main.allData.push(tmpOject);
-
                 }
                 
 	     });
@@ -36,8 +32,9 @@ gotApp.factory('getSaveDataBooks', ['$q','$http', 'getAllDataService', '$interva
     var getAllBooks = function(bookUrl, pageData){
     	main.bookUrl = bookUrl;
     	main.pageData = pageData;
-    	$interval(getAllBooksHelper,500,3).then(function(){
-    		console.log(main.booksArr);
+        clearInterval(timerBooks);
+    	timerBooks = $interval(getAllBooksHelper,1000,3).then(function(){
+    		//console.log(main.booksArr);
     		 deferred.resolve(main.booksArr);
     		
     	});
