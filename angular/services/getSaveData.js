@@ -40,7 +40,7 @@ gotApp.factory('getSaveData', ['$q','$http', 'getAllDataService', '$interval', f
     	main.houseurl = houseUrl;
     	main.pageData = pageData;
         clearInterval(timerHouses);
-    	timerHouses = $interval(getAllHousesHelper,1000,1).then(function(){
+    	timerHouses = $interval(getAllHousesHelper,1000,10).then(function(){
     		//console.log('IN New3');
     		//console.log(main.houseArr);
     		 deferred.resolve(main.houseArr);
