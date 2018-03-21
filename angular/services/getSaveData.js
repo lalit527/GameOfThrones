@@ -4,12 +4,13 @@ gotApp.factory('getSaveData', ['$q','$http', 'getAllDataService', '$interval', f
      main.characters = 1;
      main.houseArr = [];
      main.charsArr = [];
-     main.allData = [];
+     var timerHouses;
      var deferred = $q.defer();
 
      //console.log('IN New1');
      var getAllHousesHelper = function(){
      	//console.log('IN New4');
+        ++main.houses;
         getAllDataService.getAllHouses(main.houseurl, main.houses, main.pageData).then(function successCallback(response){
                 /*console.log(JSON.stringify(response.data));*/
                 //console.log(JSON.stringify(response.data));
@@ -27,9 +28,8 @@ gotApp.factory('getSaveData', ['$q','$http', 'getAllDataService', '$interval', f
                             "resultId": main.houses
                    };
                    main.houseArr.push(tmpOject);
-                   main.allData.push(tmpOject);
                 }
-                ++main.houses;
+                
 	     });
 
     }
@@ -39,7 +39,8 @@ gotApp.factory('getSaveData', ['$q','$http', 'getAllDataService', '$interval', f
     	//console.log('IN New2');
     	main.houseurl = houseUrl;
     	main.pageData = pageData;
-    	$interval(getAllHousesHelper,500,10).then(function(){
+        clearInterval(timerHouses);
+    	timerHouses = $interval(getAllHousesHelper,1000,10).then(function(){
     		//console.log('IN New3');
     		//console.log(main.houseArr);
     		 deferred.resolve(main.houseArr);
